@@ -1,0 +1,7 @@
+spec:
+  name: sample-pycob
+  services:
+    - name: sample-pycob
+      git:
+        branch: main
+        repo_clone_url: https://github.com/pycob/quickstart.git
