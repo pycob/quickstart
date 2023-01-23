@@ -1,0 +1,8 @@
+name: sample-pycob
+services:
+- environment_slug: python
+  github:
+    branch: main
+    deploy_on_push: false
+    repo: pycob/quickstart
+  name: sample-pycob
