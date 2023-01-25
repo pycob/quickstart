@@ -1,2 +1,2 @@
-pycob=0.0.3
+pycob
 pandas
