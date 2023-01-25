@@ -1,8 +1,10 @@
 import pycob as cob
 import pandas as pd
 
+# Create a PyCob app
 app = cob.App('Sample App')
 
+# Define the page
 def test_page(server_request: cob.Request) -> cob.Page:
     name = server_request.get_query_parameter('name')
     
@@ -35,6 +37,8 @@ def test_page(server_request: cob.Request) -> cob.Page:
 
     return page
 
+# Give the page a route
 app.add_page('/', "Home", test_page)
 
+# Run the server
 app.run()
