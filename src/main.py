@@ -1,12 +1,12 @@
-import pycob as pc
+import pycob as cob
 import pandas as pd
 
-app = pc.App('Sample App')
+app = cob.App('Sample App')
 
-def test_page(server_request: pc.Request) -> pc.Page:
+def test_page(server_request: cob.Request) -> cob.Page:
     name = server_request.get_query_parameter('name')
     
-    page = pc.Page('Sample Page')
+    page = cob.Page('Sample Page')
 
     if name != "":
         page.add_header("Hello, " + name)
