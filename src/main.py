@@ -1,33 +1,40 @@
 import pycob as pc
 import pandas as pd
 
-app = pc.App('Test App')
+app = pc.App('Sample App')
 
 def test_page(server_request: pc.Request) -> pc.Page:
     name = server_request.get_query_parameter('name')
-    page = pc.Page('Test Page')
-    page.add_header('Test Header', "2")
-    page.add_text('Test Text')
-    page.add_alert('Test Alert')
-    page.add_hero('Hello ' + name, 'Test Subtitle', 'https://source.unsplash.com/random/800x600')
     
-    form = pc.FormComponent(action="/")
+    page = pc.Page('Sample Page')
+
+    if name != "":
+        page.add_header("Hello, " + name)
+    else:
+        page.add_header('Sample Header')
+
+    page.add_text('Sample Text')
+    page.add_alert('Sample Alert', "Sample Badge")
+    
+    card = page.add_card()
+    card.add_header("Sample Card", size=3)
+
+    form = card.add_form(action="/")
     form.add_formtext('Name', 'name', 'Enter your name')
     form.add_formsubmit('Submit')
 
-    page.add_component(form)
-
     data = {
-        "calories": [420, 380, 390],
-        "duration": [50, 40, 45]
+        "data_int": [420, 380, 390],
+        "data_float": [50.2, 39.6, 100.3],
+        "large_numbers": [123123.123, 12312512.123, 113453252334.123],
     }
 
     df = pd.DataFrame(data)
 
-    page.add_pandas_table(df)
+    page.add_pandastable(df)
 
     return page
 
-app.add_page('/', test_page)
+app.add_page('/', "Home", test_page)
 
 app.run()
