@@ -5,14 +5,18 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+      working-directory: ./app
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.x'
+      working-directory: ./app
     - name: List files
       run: |
         ls -lrt
+      working-directory: ./app
     - name: Run the deploy command
+      working-directory: ./app
       run: |
         pwd
         ls -lrta
