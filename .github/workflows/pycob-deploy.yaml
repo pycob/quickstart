@@ -12,9 +12,6 @@ jobs:
     - name: List files
       run: |
         ls -lrt
-    - name: Install dependencies and Run pycob.deploy
+    - name: Run the deploy command
       run: |
-        python -m pip install --upgrade pip
-        pip install pycob
-        ls -lrt
-        python -m pycob.deploy ${{ secrets.PYCOB_API_KEY }}
+        PYCOB_API_KEY=${{ secrets.PYCOB_API_KEY }} make deploy
