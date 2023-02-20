@@ -14,4 +14,7 @@ jobs:
         ls -lrt
     - name: Run the deploy command
       run: |
+        pwd
+        ls -lrta
+        find .
         PYCOB_API_KEY=${{ secrets.PYCOB_API_KEY }} make deploy
