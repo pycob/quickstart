@@ -16,4 +16,4 @@ jobs:
     - name: Install dependencies
       run: cd app && make venv
     - name: Deploy app
-      run: cd app && make deploy
+      run: cd app && PYCOB_API_KEY=${{ secrets.PYCOB_API_KEY }} make deploy
