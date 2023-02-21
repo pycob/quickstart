@@ -1,8 +1,6 @@
 # Quickstart
 Use this template to start your own PyCob app
-
-When you're ready, you can use these 1-click deployments to various cloud services:
-
+https://github.com/pycob/quickstart/blob/main/src/main.py
 
 # Deploy to PyCob
 On GitHub, you can use a GitHub workflow to automatically deploy your site to PyCob Hosting
