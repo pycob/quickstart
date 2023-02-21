@@ -13,6 +13,3 @@ https://github.com/pycob/quickstart/actions/workflows/pycob-deploy.yaml
 # Deploy to other Cloud Services
 Running on PyCob Infrastructure is optional. You can run PyCob apps anywhere.
 
-[![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run)
-
-[![Deploy to DigitalOcean](https://www.deploytodo.com/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/pycob/quickstart/tree/main)
