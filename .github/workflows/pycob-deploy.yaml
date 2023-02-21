@@ -1,24 +1,19 @@
-on: [push]
+name: Deploy App to PyCob Hosting
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
-  Deploy-to-PyCob:
+  deploy:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
-      working-directory: ./app
-    - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/checkout@v2
       with:
-        python-version: '3.x'
-      working-directory: ./app
-    - name: List files
-      run: |
-        ls -lrt
-      working-directory: ./app
-    - name: Run the deploy command
-      working-directory: ./app
-      run: |
-        pwd
-        ls -lrta
-        find .
-        PYCOB_API_KEY=${{ secrets.PYCOB_API_KEY }} make deploy
+        path: app
+    - name: Install dependencies
+      run: cd app && make venv
+    - name: Deploy app
+      run: cd app && make deploy
